@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+            <massaction name="listing_massaction">
+                <action name="order_delete">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="type" xsi:type="string">order_delete</item>
+                            <item name="label" xsi:type="string" translate="true">Delete Order(s)</item>
+                            <item name="url" xsi:type="url" path="delete/order/massDelete"/>
+                            <item name="confirm" xsi:type="array">
+                                <item name="title" xsi:type="string" translate="true">Delete Order(s)</item>
+                                <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
+                            </item>
+                        </item>
+                    </argument>
+                </action>
+            </massaction>
+    </listingToolbar>
+    <columns name="sales_order_columns">
+        <actionsColumn name="actions" class="WMZ\DeleteOrder\Ui\Component\Listing\Column\ViewAction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="viewUrlPath" xsi:type="string">sales/order/view</item>
+                    <item name="urlEntityParamName" xsi:type="string">order_id</item>
+                    <item name="sortOrder" xsi:type="number">1200</item>
+                </item>
+            </argument>
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>
